@@ -1,0 +1,19 @@
+
+{
+    "parameters_out":{},
+    "connector_out":"Dump, v1.0",
+    "new_mapper":"out_dict = in_dict",
+    "connector_in":"Pipedrive, v1.0",
+    "parameters_in":{
+        "url":"https://api.pipedrive.com/v1",
+        "http_method":"GET",
+        "error_codes":[
+            501,
+            401
+        ],
+        "rest_data":{},
+        "api_method":"/deals",
+        "api_token":"Insert_your_api_token_here"
+    },
+    "name":"client_process"
+}
