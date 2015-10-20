@@ -2,7 +2,33 @@
 # Description: Create new leankit card for Pipedrive deal.
 {
     "connector_in":"Pipedrive, v1.0",
-    "new_mapper":"# function convert date input format to date output format.\r\ndef get_date_in_out_format(input_date):\r\n    date_result = ''\r\n    if input_date:\r\n        input_date = input_date.split('-')\r\n        date_result = '/'.join([\r\n            input_date[1], input_date[2], input_date[0]])\r\n    return date_result\r\n        \r\nin_data = in_dict.get('data')\r\nfinish_date = in_data.get('expected_close_date')\r\nstart_date = in_data.get('next_activity_date')\r\n# dct_types_card contains custom types of pipedrive activities  \r\n# and numbers of types of leankit cards.\r\ndct_types_card = {'new_feature': Insert_leankit_type_card_here, 'risk__issue': Insert_leankit_type_card_here}\r\ntype_card = in_data.get('next_activity_type')\r\nout_dict = {\r\n    'Title': in_data.get('title'),\r\n    'Description': in_data.get('next_activity_note'),\r\n    'Size': in_data.get('value'),\r\n    'Tags': in_data.get('next_activity_subject'),\r\n    'DueDate': get_date_in_out_format(finish_date),\r\n    'StartDate': get_date_in_out_format(start_date),\r\n    'ExternalCardID': str(in_data.get('id')),\r\n    'ExternalSystemName': in_data.get('org_name'),\r\n    'TypeId': dct_types_card.get(type_card),\r\n}",
+    "new_mapper":
+        # function convert date input format to date output format.
+        def get_date_in_out_format(input_date):
+            date_result = ''
+            if input_date:
+                input_date = input_date.split('-')
+            date_result = '/'.join([
+                input_date[1], input_date[2], input_date[0]])
+        return date_result
+        in_data = in_dict.get('data')
+        finish_date = in_data.get('expected_close_date')
+        start_date = in_data.get('next_activity_date')
+        # dct_types_card contains custom types of pipedrive activities  
+        # and numbers of types of leankit cards.
+        dct_types_card = {'new_feature': Insert_leankt_type_card_here, 'risk__issue': Insert_leankt_type_card_here}
+        type_card = in_data.get('next_activity_type')
+        out_dict = {
+            'Title': in_data.get('title'),
+            'Description': in_data.get('next_activity_note'),
+            'Size': in_data.get('value'),
+            'Tags': in_data.get('next_activity_subject'),
+            'DueDate': get_date_in_out_format(finish_date),
+            'StartDate': get_date_in_out_format(start_date),
+            'ExternalCardID': str(in_data.get('id')),
+            'ExternalSystemName': in_data.get('org_name'),
+            'TypeId': dct_types_card.get(type_card),
+        }
     "name":"github_1",
     "parameters_out":{
         "url":"Insert_your_hostname_here",
