@@ -2,7 +2,7 @@
 # Description: Create new leankit card for Pipedrive deal.
 {
     "connector_in":"Pipedrive, v1.0",
-    "new_mapper":
+    "new_mapper":"
         # function convert date input format to date output format.
         def get_date_in_out_format(input_date):
             date_result = ''
@@ -28,7 +28,7 @@
             'ExternalCardID': str(in_data.get('id')),
             'ExternalSystemName': in_data.get('org_name'),
             'TypeId': dct_types_card.get(type_card),
-        }
+        }",
     "name":"github_1",
     "parameters_out":{
         "url":"Insert_your_hostname_here",
