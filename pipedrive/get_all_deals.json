@@ -1,5 +1,5 @@
 
-# Get all deals from pipedrive to c-534 dumb. 
+# Get all deals from pipedrive to c-534 dump. 
 {
     "parameters_in":{
         "api_token":"Insert_your_api_token_here",
