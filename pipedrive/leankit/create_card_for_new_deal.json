@@ -1,32 +1,32 @@
 
-#TODO
+# Description: Microservice create new leankit card for Pipedrive deal.
 {
-    "name":"client_process",
+    "connector_in":"Pipedrive, v1.0",
+    "new_mapper":"# function converts date input format to date output format.\r\ndef get_date_in_out_format(input_date):\r\n    date_result = ''\r\n    if input_date:\r\n        input_date = input_date.split('-')\r\n        date_result = '/'.join([\r\n            input_date[1], input_date[2], input_date[0]])\r\n    return date_result\r\n        \r\nin_data = in_dict.get('data')\r\nfinish_date = in_data.get('expected_close_date')\r\nstart_date = in_data.get('next_activity_date')\r\n# dct_types_card contains custom types of pipedrive activities  \r\n# and numbers of types of leankit cards.\r\ndct_types_card = {'new_feature': insert_id_leankit_type_card_here, 'risk__issue': insert_id_leankit_type_card_here}\r\ntype_card = in_data.get('next_activity_type')\r\nout_dict = {\r\n    'Title': in_data.get('title'),\r\n    'Description': in_data.get('next_activity_note'),\r\n    'Size': in_data.get('value'),\r\n    'Tags': in_data.get('next_activity_subject'),\r\n    'DueDate': get_date_in_out_format(finish_date),\r\n    'StartDate': get_date_in_out_format(start_date),\r\n    'ExternalCardID': str(in_data.get('id')),\r\n    'ExternalSystemName': in_data.get('org_name'),\r\n    'TypeId': dct_types_card.get(type_card),\r\n}",
+    "name":"github_1",
+    "parameters_out":{
+        "url":"Insert_your_hostname_here",
+        "user":{
+            "password":"Insert_your_account_password_here",
+            "login":"Insert_your_email_address_here"
+        },
+        "optional":{
+            "board_id":"Insert_board_id_here",
+            "lane_id":"Insert_lane_id_here",
+            "position":"Insert_position_card_in_board_here"
+        },
+        "command":"AddCard"
+    },
+    "connector_out":"Leankit Kanban, v1.0",
     "parameters_in":{
         "error_codes":[
             501,
             401
         ],
-        "api_token":"Insert_your_api_token_here",
         "http_method":"GET",
-        "api_method":"/deals/1",
         "rest_data":{},
-        "url":"https://api.pipedrive.com/v1"
-    },
-    "new_mapper":"in_data = in_dict.get('data')\r\nout_dict = {\r\n    'Title': in_data.get('title'),\r\n    'TypeId': 256045332,\r\n    'Size': in_data.get('value')\r\n}",
-    "connector_out":"Leankit Kanban, v1.0",
-    "parameters_out":{
-        "optional":{
-            "position":"1",
-            "board_id":"256063992",
-            "lane_id":"256129213"
-        },
-        "command":"AddCard",
-        "url":"Insert_your_account_name_here",
-        "user":{
-            "password":"Insert_your_account_email_address_here",
-            "login":"Insert_your_account_password_here"
-        }
-    },
-    "connector_in":"Pipedrive, v1.0"
+        "api_method":"/deals/insert_your_id_deal_here",
+        "api_url":"https://api.pipedrive.com/v1",
+        "api_token":"Insert_your_api_token_here"
+    }
 }
