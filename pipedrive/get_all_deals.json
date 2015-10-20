@@ -1,23 +1,20 @@
 
 # Get all deals from pipedrive to c-534 dumb. 
 {
-    "new_mapper":"out_dict = in_dict",
-    "connector_out":"Dump, v1.0",
-    "connector_in":"Pipedrive, v1.0",
-    "name":"bbbbbb",
     "parameters_in":{
-        "api_token":"53f2465c9db78f43d8f6e497340ab43ec09a96cf",
+        "api_token":"Insert_your_api_token_here",
         "api_url":"https://api.pipedrive.com/v1",
+        "api_method":"/deals",
+        "http_method":"GET",
+        "rest_data":{},
         "error_codes":[
             501,
             401
-        ],
-        "http_method":"GET",
-        "api_method":"/deals/1",
-        "queue_delay_ms":0,
-        "rest_data":{},
-        "queue_warning_minutes":60,
-        "high_load":false
+        ]
     },
-    "parameters_out":{}
+    "parameters_out":{},
+    "connector_out":"Dump, v1.0",
+    "name":"github_2",
+    "connector_in":"Pipedrive, v1.0",
+    "new_mapper":"out_dict = in_dict"
 }
