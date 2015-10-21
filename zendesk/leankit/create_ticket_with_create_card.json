@@ -1,7 +1,7 @@
 # Create new zendesk ticket and card in leankit.
 {
     "parameters_in":{
-        "url":"https://INSERT_YOUR_DOMAIN_HERE.zendesk.com/api/v2",
+        "api_url":"https://INSERT_YOUR_DOMAIN_HERE.zendesk.com/api/v2",
         "api_method":"/tickets.json",
         "http_method":"POST",
         "headers":{},
@@ -46,7 +46,7 @@
     },
     "connector_out":"Leankit Kanban, v1.0",
     "name":"Create ticket with create card",
-    "connector_in":"Zendesk, v1.0",
+    "connector_in":"Zendesk Core API, v1.0",
     "new_mapper":"
         ticket = in_dict['ticket']
         tags = ','.join(ticket['tags'])
