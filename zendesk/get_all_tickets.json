@@ -3,7 +3,7 @@
     "parameters_out":{},
     "name":"Get all tickets",
     "parameters_in":{
-        "url":"https://INSERT_YOUR_DOMAIN_HERE.zendesk.com/api/v2",
+        "api_url":"https://INSERT_YOUR_DOMAIN_HERE.zendesk.com/api/v2",
         "api_method":"/tickets/recent.json",
         "user":{
             "email":"INSERT_YOUR_EMAIL_HERE",
@@ -19,5 +19,5 @@
     },
     "connector_out":"Dump, v1.2",
     "new_mapper":"out_dict = in_dict",
-    "connector_in":"Zendesk, v1.0"
+    "connector_in":"Zendesk Core API, v1.0"
 }
