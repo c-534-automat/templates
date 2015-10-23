@@ -1,5 +1,5 @@
 
-# Description: Create new leankit card for Pipedrive deal.
+# Create new leankit card for Pipedrive deal.
 {
     "connector_in":"Pipedrive, v1.0",
     "new_mapper":"
