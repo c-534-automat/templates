@@ -26,9 +26,9 @@
         ]
     },
     "connector_out":"Pipedrive, v1.0",
-    "new_mapper":"
-    in_data = in_dict.get('response').get('result').get('Contacts').get('row').get('FL')
-    out_dict = {}
+    "new_mapper":
+      in_data = in_dict.get('response').get('result').get('Contacts').get('row').get('FL')
+      out_dict = {}
       def set_out_dict():
           first_name = ''
           last_name = ''
@@ -58,6 +58,6 @@
           name = ' '.join([first_name, last_name])
           out_dict['name'] = name
           out_dict['phones'] = phones
-          out_dict['email'] = emails"
+          out_dict['email'] = emails
       set_out_dict()
 }
