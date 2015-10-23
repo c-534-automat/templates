@@ -1,0 +1,49 @@
+{
+    "new_mapper":"
+    	out_dict = in_dict
+    	cards = []
+    	for card in in_dict['cards']:
+    	    tags = ','.join([obj['name'] for obj in card['labels']])
+    	    if card['due']:
+    		    parts = card['due'][:10].split('-')
+    		    due_date = '/'.join([parts[1], parts[2], parts[0]])
+    	    else:
+    		    due_date = None  
+    	        cards.append({
+            		'TypeId': INSERT_LEANKT_TYPE_CARD_HERE,
+            		'Title': card['name'],
+            		'Description': card['desc'],
+            		'DueDate': due_date,
+            		'Tags': tags,
+            		'ExternalSystemUrl': card['shortUrl']
+        	    })
+	    out_dict['data'] = cards",
+    "parameters_in":{
+        "api_url":"https://api.trello.com/1",
+        "api_method":"lists/INSERT_LIS_ID_TOKEN_HERE?cards=open",
+        "api_key":"INSERT_YOUR_KEY_TOKEN_HERE",
+        "api_token":"INSERT_YOUR_API_TOKEN_HERE",
+        "http_method":"GET",
+        "rest_data":{},
+        "error_codes":[
+            404,
+            500
+        ]
+    },
+    "name":"Trello copy card to leankit",
+    "connector_in":"Trello, v1.0",
+    "connector_out":"Leankit Kanban, v1.0",
+    "parameters_out":{
+        "command":"AddCards",
+        "url":"INSERT_YOUR_HOSTNAME_HERE",
+        "optional":{
+            "board_id":"INSERT_BOARD_ID_HERE",
+            "lane_id":"INSERT_LANE_ID_HERE",
+            "position":"INSERT_POSITION_CARD_IN_BOARD_HERE"
+        },
+        "user":{
+            "login":"INSERT_YOUR_EMAIL_HERE,
+            "password":"INSERT_YOUR_PASSWORD_HERE"
+        }
+    }
+}
