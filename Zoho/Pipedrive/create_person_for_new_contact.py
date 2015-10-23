@@ -59,6 +59,5 @@
           out_dict['name'] = name
           out_dict['phones'] = phones
           out_dict['email'] = emails"
-        
       set_out_dict()
 }
