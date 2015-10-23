@@ -1,0 +1,19 @@
+{
+    "parameters_out":{},
+    "parameters_in":{
+        "api_url":"https://api.trello.com/1",
+        "api_method":"/boards/INSERT_YOUR_BOARD_ID_HERE",
+        "api_key":"INSERT_YOUR_API_KEY_HERE",
+        "api_token":"INSERT_YOUR_API_TOKEN_HERE",
+        "http_method":"GET",
+        "rest_data":{},
+        "error_codes":[
+            404,
+            500
+        ]
+    },
+    "new_mapper":"out_dict = in_dict",
+    "name":"Trello get board",
+    "connector_out":"Dump, v1.2",
+    "connector_in":"Trello, v1.0"
+}
