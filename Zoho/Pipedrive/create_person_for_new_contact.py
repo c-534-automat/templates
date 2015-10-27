@@ -1,5 +1,20 @@
 # Create new pipedrive person for zoho contact.
 {
+    "name":"P_zoho_2",
+    "connector_in":"Zoho, v1.0",
+    "parameters_in":{
+        "api_url":"https://crm.zoho.com/crm/private/json/",
+        "api_method":"Contacts/getRecordById?id=Insert_your_contact_id_here",
+        "api_scope": "crmapi",
+        "api_token":"Insert_your_zoho_token_here",
+        "http_method":"GET",
+        "error_codes":[
+            4422,
+            4600,
+            4834,
+            500
+        ],
+    },
     "new_mapper":"
         input_mapper_data = in_dict.get(
         'response').get('result').get('Contacts').get('row').get('FL')
@@ -49,22 +64,8 @@
         def get_item_list(elem):
             return elem.get('val'), elem.get('content')
     
-    out_dict = set_mapper_data(input_mapper_data)"
+        out_dict = set_mapper_data(input_mapper_data)"
     
-    "parameters_in":{
-        "api_url":"https://crm.zoho.com/crm/private/json/",
-        "api_method":"Contacts/getRecordById?scope=crmapi&id=Insert_your_contact_id_here",
-        "api_token":"Insert_your_zoho_token_here",
-        "http_method":"GET",
-        "error_codes":[
-            4422,
-            4600,
-            4834,
-            500
-        ],
-    },
-    "name":"P_zoho_2",
-    "connector_in":"Zoho, v1.0",
     "connector_out":"Pipedrive, v1.0",
     "parameters_out":{
         "api_url":"https://api.pipedrive.com/v1",
