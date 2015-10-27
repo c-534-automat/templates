@@ -1,8 +1,7 @@
 # Get all contacts from zoho to c-534 dump. 
 {
-    "connector_in":"Zoho, v1.0",
-    "parameters_out":{},
     "name":"Zoho_1",
+    "connector_in":"Zoho, v1.0",
     "parameters_in":{
         "api_url":"https://crm.zoho.com/crm/private/json/",
         "api_method":"Contacts/getMyRecords?scope=crmapi",
@@ -15,6 +14,7 @@
             4834
         ]
     },
+    "new_mapper":"out_dict = in_dict",
     "connector_out":"Dump, v1.0",
-    "new_mapper":"out_dict = in_dict"
+    "parameters_out":{},
 }
