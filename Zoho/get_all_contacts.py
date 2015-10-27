@@ -4,9 +4,9 @@
     "connector_in":"Zoho, v1.0",
     "parameters_in":{
         "api_url":"https://crm.zoho.com/crm/private/json/",
-        "api_method":"Contacts/getMyRecords?scope=crmapi",
+        "api_method":"Contacts/getMyRecords",
+        "api_scope":"crmapi",
         "api_token":"Insert_your_token_here",
-        "rest_data":"",
         "http_method":"GET",
         "error_codes":[
             4422,
