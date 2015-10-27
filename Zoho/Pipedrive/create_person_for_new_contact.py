@@ -64,7 +64,7 @@
         def get_item_list(elem):
             return elem.get('val'), elem.get('content')
     
-        out_dict = set_mapper_data(input_mapper_data)"
+        out_dict = set_mapper_data(input_mapper_data)",
     
     "connector_out":"Pipedrive, v1.0",
     "parameters_out":{
