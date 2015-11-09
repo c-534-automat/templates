@@ -1,3 +1,4 @@
+# Get all invoices from xero to c-534 dump. 
 {
     "name":"Process_1",
     "connector_in":"Xero, v1.0"
