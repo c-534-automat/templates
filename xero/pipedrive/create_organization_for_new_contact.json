@@ -1,0 +1,42 @@
+{
+    "name":"process_2"
+    "connector_in":"Xero, v1.0",
+    "parameters_in":{
+    "api_url":"https://api.xero.com/api.xro/2.0/",
+    "api_method":"Contacts/Insert_your_contact_id_here",
+    "http_method":"GET",
+    "error_codes":[
+        400,
+        401,
+        403,
+        404,
+        500,
+        501,
+        503
+      ]
+    },
+    "transformation":"
+        mapper_data = in_dict['Contacts'][0]
+        address = mapper_data['Addresses'][0]
+        person_name = '{}{}{}'.format(mapper_data['FirstName'], ' ', mapper_data['LastName'])
+        out_dict = {
+            'name': mapper_data['Name'],
+            'address_locality': address['Region'],
+            'address_sublocality': address['City'],
+            'address_postal_code': address['PostalCode'],
+            'address_country': address['Country'],
+            'address': address['AddressLine1'],
+        }"
+    "connector_out":"Pipedrive, v1.0",
+    "parameters_out":{
+        "api_method":"/organizations",
+        "api_token":"Insert_your_pipedrive_token_here",
+        "api_url":"https://api.pipedrive.com/v1",
+        "error_codes":[
+            501,
+            401
+        ],
+        "http_method":"POST",
+        "rest_data":{}
+    },
+}
