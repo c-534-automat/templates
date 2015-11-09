@@ -1,0 +1,21 @@
+{
+    "name":"Process_1",
+    "connector_in":"Xero, v1.0"
+    "parameters_in":{
+        "api_url":"https://api.xero.com/api.xro/2.0/",
+        "api_method":"Invoices",
+        "http_method":"GET",
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500,
+            501,
+            503
+        ]
+    },
+    "transformation":"out_dict = in_dict",
+    "connector_out":"Dump, v1.0",
+    "parameters_out":{},
+}
