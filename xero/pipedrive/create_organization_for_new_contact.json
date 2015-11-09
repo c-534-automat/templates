@@ -19,6 +19,7 @@
     "transformation":"
         mapper_data = in_dict['Contacts'][0]
         address = mapper_data['Addresses'][0]
+        phone = mapper_data['Phones'][0]
         person_name = '{}{}{}'.format(mapper_data['FirstName'], ' ', mapper_data['LastName'])
         out_dict = {
             'name': mapper_data['Name'],
@@ -27,6 +28,7 @@
             'address_postal_code': address['PostalCode'],
             'address_country': address['Country'],
             'address': address['AddressLine1'],
+            'country_code': phone['PhoneCountryCode']
         }"
     "connector_out":"Pipedrive, v1.0",
     "parameters_out":{
