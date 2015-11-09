@@ -1,4 +1,4 @@
-# Create one pipedrive organization for one xero contact.
+# Create new pipedrive organization for one xero contact.
 {
     "name":"process_2"
     "connector_in":"Xero, v1.0",
