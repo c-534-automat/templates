@@ -1,0 +1,15 @@
+{
+    "name":"process_1",
+    "connector_in":"Wrike REST OAuth2, v1.0",
+    "parameters_in":{
+        "error_codes":[
+            404,
+            500,
+            401
+        ],
+        "url":"https://www.wrike.com/api/v3/accounts"
+    },
+    "transformation":"out_dict = in_dict"
+    "connector_out":"Dump, v1.2",
+    "parameters_out":{},
+}
