@@ -1,0 +1,50 @@
+{
+    "name":"wrike_process_2",
+    "connector_in":"Wrike REST OAuth2, v1.0",
+    "parameters_in":{
+        "error_codes":[
+            404,
+            500,
+            401
+        ],
+        "url":"https://www.wrike.com/api/v3/tasks/IEAAZ2ZZKQCBSKM7"
+    },
+    "transformation":"
+        mapper_data = in_dict['data'][0]
+        dates = mapper_data['dates']
+        dct_priorities = {'Low': 0, 'Normal': 1, 'High': 2}
+        priority = mapper_data['importance']
+        def get_date_in_out_format(input_date):
+            date_result = ''
+            if input_date:
+                input_date = input_date[:10].split('-')
+                date_result = '/'.join([
+                input_date[1], input_date[2], input_date[0]])
+            return date_result
+    out_dict = {
+        'title': mapper_data['title'],
+        'TypeId': 256045338,
+        'StartDate': get_date_in_out_format(dates['start']),
+        'DueDate': get_date_in_out_format(dates['due']),
+        'ExternalSystemUrl': mapper_data['permalink'],
+        'Priority': dct_priorities[priority],
+        'Description': mapper_data['description']
+    }",
+    "connector_out":"Leankit Kanban, v1.0",
+    "parameters_out":{
+        "command":"AddCard",
+        "optional":{
+            "board_id":"256063992",
+            "board_version":"",
+            "card_id":"",
+            "external_id":"",
+            "lane_id":"256154908",
+            "position":"1"
+        },
+        "url":"Lit534-Darek",
+        "user":{
+            "login":"dariusz.obuchowski@lit534.pl",
+            "password":"nike12"
+        }
+    }
+}
