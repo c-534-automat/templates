@@ -44,8 +44,8 @@
         },
         "url":"Insert_your_hostname_here",
         "user":{
-            "login":"Insert_your_login_here",
-            "password":"Insert_your_password_here"
+            "login":"Insert_your_account_login_here",
+            "password":"Insert_your_account_password_here"
         }
     }
 }
