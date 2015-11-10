@@ -29,7 +29,7 @@
             'address_country': address['Country'],
             'address': address['AddressLine1'],
             'country_code': phone['PhoneCountryCode']
-        }"
+        }",
     "connector_out":"Pipedrive, v1.0",
     "parameters_out":{
         "api_method":"/organizations",
