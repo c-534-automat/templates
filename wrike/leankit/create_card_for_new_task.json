@@ -24,7 +24,7 @@
             return date_result
     out_dict = {
         'title': mapper_data['title'],
-        'TypeId': 256045338,
+        'TypeId': Insert_your_card_type_here,
         'StartDate': get_date_in_out_format(dates['start']),
         'DueDate': get_date_in_out_format(dates['due']),
         'ExternalSystemUrl': mapper_data['permalink'],
