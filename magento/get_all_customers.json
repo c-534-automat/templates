@@ -1,0 +1,22 @@
+# # Get all customers from magento to c-534 dump. 
+{
+    "name":"Magento_1",
+    "connector_in":"Magento, v1.0",
+    "parameters_in":{
+        "api_url":"http://104.155.70.174/api/rest/",
+        "api_method":"customers",
+        "http_method":"GET",
+        "rest_data":{},
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500,
+            503
+        ]
+    },
+    "transformation":"out_dict = in_dict"
+    "connector_out":"Dump, v1.2",
+    "parameters_out":{},
+}
