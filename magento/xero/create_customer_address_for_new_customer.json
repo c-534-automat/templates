@@ -4,7 +4,7 @@
     "connector_in":"Xero, v1.0",
     "parameters_in":{
         "api_url":"https://api.xero.com/api.xro/2.0/",
-        "api_method":"Contacts/2371d26c-26a7-4faf-9fb5-2c10fbf84beb",
+        "api_method":"Contacts/Insert_your_contact_id_here",
         "http_method":"GET",
         "error_codes":[
             400,
@@ -33,7 +33,7 @@
     "connector_out":"Magento, v1.0"
     "parameters_out":{
         "api_url":"http://104.155.70.174/api/rest/",
-        "api_method":"customers/10/addresses",
+        "api_method":"customers/Insert_your_customer_id_here/addresses",
         "http_method":"POST",
         "rest_data":{},
         "error_codes":[
