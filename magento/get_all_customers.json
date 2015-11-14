@@ -1,4 +1,4 @@
-# # Get all customers from magento to c-534 dump. 
+# Get all customers from magento to c-534 dump. 
 {
     "name":"Magento_1",
     "connector_in":"Magento, v1.0",
