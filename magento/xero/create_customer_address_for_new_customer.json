@@ -1,0 +1,49 @@
+# Create new magento customer address for one xero customer.
+{
+    "name":"Magento_2",
+    "connector_in":"Xero, v1.0",
+    "parameters_in":{
+        "api_url":"https://api.xero.com/api.xro/2.0/",
+        "api_method":"Contacts/2371d26c-26a7-4faf-9fb5-2c10fbf84beb",
+        "http_method":"GET",
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500,
+            501,
+            503
+        ]
+    },
+    "transformation":"
+        mapper_data = in_dict['Contacts'][0]
+        address = mapper_data['Addresses'][0]
+        phone = mapper_data['Phones'][0]
+        out_dict = {
+            'firstname': mapper_data['FirstName'],
+            'lastname': mapper_data['LastName'],
+            'telephone': mapper_data['ContactNumber'],
+            'street': [address['AddressLine1']],
+            'city': address['City'],
+            'country_id': address['Country'],
+            'postcode': address['PostalCode'],
+            'region': address['Region'],
+        }",
+    "connector_out":"Magento, v1.0"
+    "parameters_out":{
+        "api_url":"http://104.155.70.174/api/rest/",
+        "api_method":"customers/10/addresses",
+        "http_method":"POST",
+        "rest_data":{},
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500,
+            501,
+            503
+        ]
+    },
+}
