@@ -24,7 +24,7 @@
             'firstname': mapper_data['FirstName'],
             'lastname': mapper_data['LastName'],
             'telephone': mapper_data['ContactNumber'],
-            'street': [address['AddressLine1']],
+            'street': [address['AddressLine1'], address['AddressLine2']],
             'city': address['City'],
             'country_id': address['Country'],
             'postcode': address['PostalCode'],
