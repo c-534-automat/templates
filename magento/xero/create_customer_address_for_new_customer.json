@@ -32,7 +32,7 @@
         }",
     "connector_out":"Magento, v1.0"
     "parameters_out":{
-        "api_url":"http://104.155.70.174/api/rest/",
+        "api_url":"http://Insert_your_magento_subdomain_here/api/rest/",
         "api_method":"customers/Insert_your_customer_id_here/addresses",
         "http_method":"POST",
         "rest_data":{},
