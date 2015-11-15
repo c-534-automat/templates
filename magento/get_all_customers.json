@@ -3,7 +3,7 @@
     "name":"Magento_1",
     "connector_in":"Magento, v1.0",
     "parameters_in":{
-        "api_url":"http://104.155.70.174/api/rest/",
+        "api_url":"http://Insert_your_magento_subdomain_here/api/rest/",
         "api_method":"customers",
         "http_method":"GET",
         "rest_data":{},
