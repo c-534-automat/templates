@@ -1,0 +1,25 @@
+# Get all incidents from servicenow to c-534 dump.
+{
+    "name":"test_servicenow",
+    "connector_in":"Servicenow, v1.0",
+    "parameters_in":{
+        "api_url":"https://Insert_your_servicenow_instanse_here.service-now.com/api/now/table/",
+        "api_method":"incident",
+        "http_method":"GET",
+        "user":{
+            "login":"Insert_your_instanse_login_here",
+            "password":"Insert_your_instanse_password_here"
+        },
+        "rest_data":{},
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500
+        ]
+    },
+    "transformation":"out_dict = in_dict\r\nprint out_dict",
+    "connector_out":"Dump, v1.2",
+    "parameters_out":{}
+}
