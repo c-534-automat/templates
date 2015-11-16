@@ -1,0 +1,59 @@
+# Create new servicenow user for one zoho customer.
+{
+    "name":"Servicenow_3",
+    "connector_in":"Zoho, v1.0",
+    "parameters_in":{
+        "api_url":"https://crm.zoho.com/crm/private/json/",
+        "api_method":"Contacts/getRecordById?id=Insert_your_contact_id_here",
+        "api_scope":"crmapi",
+        "api_token":"Insert_your_zoho_token_here",
+        "http_method":"GET",
+        "error_codes":[
+            4422,
+            4600,
+            4834,
+            500
+        ]
+    },
+    "transformation":"
+        input_mapper_data = in_dict['response']['result']['Contacts']['row']['FL']
+        output_mapper_data = {}
+        for item in input_mapper_data:
+            if item['val'] == 'First Name':
+                output_mapper_data['first_name'] = item['content']
+            elif item['val'] == 'Last Name':
+                output_mapper_data['last_name'] = item['content']
+            elif item['val'] == 'Phone':
+                output_mapper_data['phone'] = item['content']
+            elif item['val'] == 'Mobile':
+                output_mapper_data['mobile_phone'] = item['content']
+            elif item['val'] == 'Title':
+                output_mapper_data['title'] = item['content']
+            elif item['val'] == 'Email':
+                output_mapper_data['email'] = item['content']
+            elif item['val'] == 'Asst Phone':
+                output_mapper_data['employee_number'] = item['content']
+            elif item['val'] == 'Department':
+                output_mapper_data['company'] = item['content']
+            elif item['val'] == 'Assistant':
+                output_mapper_data['manager'] = item['content']
+        out_dict = output_mapper_data",
+    "connector_out":"Servicenow, v1.0"
+    "parameters_out":{
+        "api_url":"https://Insert_your_servicenow_instanse_here.service-now.com/api/now/table/",
+        "api_method":"sys_user",
+        "http_method":"POST",
+        "user":{
+            "login":"Insert_your_instanse_login_here",
+            "password":"Insert_your_instanse_password_here"
+        },
+        "rest_data":{},
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500
+        ]
+    }
+}
