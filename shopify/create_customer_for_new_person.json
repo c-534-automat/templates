@@ -1,0 +1,44 @@
+# Create new shopify customer for one pipedrive person.
+{
+    "name":"shopify_2",
+    "connector_in":"Pipedrive, v1.0",
+    "parameters_in":{
+      "api_method":"/persons/1",
+      "api_token":"f19a427bd61608c347284540009ff7f513d93621",
+      "api_url":"https://api.pipedrive.com/v1",
+      "error_codes":[
+          501,
+            01
+      ],
+      "http_method":"GET",
+      "rest_data":{}
+    },
+    "transformation":"
+      input_mapper_data = in_dict['data']
+      out_dict = {
+        'customer':{
+          'company': input_mapper_data['org_name'],
+          'first_name': input_mapper_data['first_name'],
+          'last_name': input_mapper_data['last_name'],
+          'phone': input_mapper_data['phone'][0]['value'],
+          'email': input_mapper_data['email'][0]['value'],
+          'order_count': input_mapper_data['activities_count'],
+          'name': input_mapper_data['name'],
+          'state': input_mapper_data['active_flag']
+        }
+      }",
+    "connector_out":"Shopify, v1.0",
+    "parameters_out":{
+        "api_url":"https://c-534.myshopify.com/admin/",
+        "api_method":"customers.json",
+        "http_method":"POST",
+        "rest_data":{},
+        "error_codes":[
+            401,
+            404,
+            422,
+            429,
+            500
+        ]
+    },
+}
