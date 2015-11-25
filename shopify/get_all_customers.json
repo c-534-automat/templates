@@ -1,0 +1,21 @@
+# Get all customers from shopify to c-534 dump. 
+{
+    "name":"shopify_1",
+    "connector_in":"Shopify, v1.0",
+    "parameters_in":{
+        "api_url":"https://c-534.myshopify.com/admin/",
+        "api_method":"customers.json",
+        "http_method":"GET",
+        "rest_data":{},
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500
+        ]
+    },
+    "transformation":"out_dict = in_dict",
+    "connector_out":"Dump, v1.2",
+    "parameters_out":{}
+}
