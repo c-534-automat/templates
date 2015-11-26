@@ -8,7 +8,7 @@
       "api_url":"https://api.pipedrive.com/v1",
       "error_codes":[
           501,
-            01
+          401
       ],
       "http_method":"GET",
       "rest_data":{}
