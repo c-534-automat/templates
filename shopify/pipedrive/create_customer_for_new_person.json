@@ -3,8 +3,8 @@
     "name":"shopify_2",
     "connector_in":"Pipedrive, v1.0",
     "parameters_in":{
-      "api_method":"/persons/1",
-      "api_token":"f19a427bd61608c347284540009ff7f513d93621",
+      "api_method":"/persons/Insert_your_person_id_here",
+      "api_token":"Insert_your_pipedrive_token_here",
       "api_url":"https://api.pipedrive.com/v1",
       "error_codes":[
           501,
@@ -29,7 +29,7 @@
       }",
     "connector_out":"Shopify, v1.0",
     "parameters_out":{
-        "api_url":"https://c-534.myshopify.com/admin/",
+        "api_url":"https://Insert_your_shop_name_here.myshopify.com/admin/",
         "api_method":"customers.json",
         "http_method":"POST",
         "rest_data":{},
