@@ -1,0 +1,45 @@
+{
+    "name":"Copy contacts from pipedrive to salesforce",
+    "connector_in":"Pipedrive, v1.0",
+    "parameters_in":{
+        "api_method":"/persons",
+        "api_token":"YOUR_API_TOKEN",
+        "api_url":"https://api.pipedrive.com/v1",
+        "error_codes":[
+            501,
+            401
+        ],
+        "http_method":"GET",
+        "rest_data":{}
+    },
+    "transformation":"
+        def get_attributes(contact):
+            id_ = 'pipe_{}'.format(contact['id'])
+            data = {
+            'type' : 'Contact',
+            'referenceId' : id_
+            }
+            return data
+
+        records = []
+        for contact in in_dict['data']: 
+        record = {}
+        record['lastname'] = u'{} {}'.format(contact['first_name'], contact['last_name'])
+        record['title'] = contact['org_name']
+        record['email'] = '; '.join(obj['value'] for obj in contact['email'])
+        record['attributes'] = get_attributes(contact)
+        records.append(record)
+        out_dict = {'records': records}"
+    "connector_out":"Salesforce, v1.0",
+    "parameters_out":{
+        "api_url":"https://INSERT_INSTANCE.salesforce.com/services/data/v35.0",
+        "api_method":"composite/tree/Contact/",
+        "http_method":"POST",
+        "rest_data":{},
+        "error_codes":[
+            401,
+            404,
+            500
+        ]
+    }
+}
