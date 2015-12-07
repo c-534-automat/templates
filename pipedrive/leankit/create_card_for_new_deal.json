@@ -1,5 +1,6 @@
 
 # Create new leankit card for Pipedrive deal.
+# The pipedrive deal has to have least one activity with expected close date. 
 {
     "connector_in":"Pipedrive, v1.0",
     "new_mapper":"
@@ -23,7 +24,7 @@
             'StartDate': get_date_in_out_format(start_date),
             'ExternalCardID': str(in_data.get('id')),
             'ExternalSystemName': in_data.get('org_name'),
-            'TypeId': 'Insert_your_card_id_here'
+            'TypeId': Insert_your_card_id_here
         }",
     "name":"github_1",
     "parameters_out":{
