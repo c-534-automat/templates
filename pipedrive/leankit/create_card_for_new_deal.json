@@ -10,7 +10,7 @@
                 input_date = input_date.split('-')
             date_result = '/'.join([
                 input_date[1], input_date[2], input_date[0]])
-        return date_result
+            return date_result
         in_data = in_dict.get('data')
         finish_date = in_data.get('expected_close_date')
         start_date = in_data.get('next_activity_date')
@@ -27,7 +27,7 @@
             'StartDate': get_date_in_out_format(start_date),
             'ExternalCardID': str(in_data.get('id')),
             'ExternalSystemName': in_data.get('org_name'),
-            'TypeId': dct_types_card.get(type_card),
+            'TypeId': 'Insert_your_type_card_id_here',
         }",
     "name":"github_1",
     "parameters_out":{
