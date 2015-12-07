@@ -27,7 +27,7 @@
             'StartDate': get_date_in_out_format(start_date),
             'ExternalCardID': str(in_data.get('id')),
             'ExternalSystemName': in_data.get('org_name'),
-            'TypeId': 'Insert_your_type_card_id_here',
+            'TypeId': dct_types_card.get(type_card),
         }",
     "name":"github_1",
     "parameters_out":{
