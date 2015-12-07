@@ -10,7 +10,7 @@
         "api_token":"Insert_your_api_token_here",
         "http_method":"GET",
         "rest_data":{},
-         "error_codes":[
+        "error_codes":[
             501,
             401
         ],
