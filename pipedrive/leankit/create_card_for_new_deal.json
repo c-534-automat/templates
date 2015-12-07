@@ -2,8 +2,20 @@
 # Create new leankit card for Pipedrive deal.
 # The pipedrive deal has to have least one activity with expected close date. 
 {
+    "name":"github_1",
     "connector_in":"Pipedrive, v1.0",
-    "new_mapper":"
+    "parameters_in":{
+        "api_url":"https://api.pipedrive.com/v1",
+        "api_method":"/deals/insert_your_id_deal_here",
+        "api_token":"Insert_your_api_token_here",
+        "http_method":"GET",
+        "rest_data":{},
+         "error_codes":[
+            501,
+            401
+        ],
+    },
+    "transformation":"
         # function convert date input format to date output format.
         def get_date_in_out_format(input_date):
             date_result = ''
@@ -26,30 +38,18 @@
             'ExternalSystemName': in_data.get('org_name'),
             'TypeId': Insert_your_card_id_here
         }",
-    "name":"github_1",
+    "connector_out":"Leankit Kanban, v1.0",
     "parameters_out":{
         "url":"Insert_your_hostname_here",
-        "user":{
-            "password":"Insert_your_account_password_here",
-            "login":"Insert_your_email_address_here"
-        },
+        "command":"AddCard",
         "optional":{
             "board_id":"Insert_board_id_here",
             "lane_id":"Insert_lane_id_here",
             "position":"Insert_position_card_in_board_here"
         },
-        "command":"AddCard"
-    },
-    "connector_out":"Leankit Kanban, v1.0",
-    "parameters_in":{
-        "error_codes":[
-            501,
-            401
-        ],
-        "http_method":"GET",
-        "rest_data":{},
-        "api_method":"/deals/insert_your_id_deal_here",
-        "api_url":"https://api.pipedrive.com/v1",
-        "api_token":"Insert_your_api_token_here"
+        "user":{
+            "login":"Insert_your_email_address_here",
+            "password":"Insert_your_account_password_here"
+        },
     }
 }
