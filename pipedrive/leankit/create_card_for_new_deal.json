@@ -14,10 +14,6 @@
         in_data = in_dict.get('data')
         finish_date = in_data.get('expected_close_date')
         start_date = in_data.get('next_activity_date')
-        # dct_types_card contains custom types of pipedrive activities  
-        # and numbers of types of leankit cards.
-        dct_types_card = {'new_feature': Insert_leankt_type_card_here, 'risk__issue': Insert_leankt_type_card_here}
-        type_card = in_data.get('next_activity_type')
         out_dict = {
             'Title': in_data.get('title'),
             'Description': in_data.get('next_activity_note'),
@@ -27,7 +23,7 @@
             'StartDate': get_date_in_out_format(start_date),
             'ExternalCardID': str(in_data.get('id')),
             'ExternalSystemName': in_data.get('org_name'),
-            'TypeId': dct_types_card.get(type_card),
+            'TypeId': 'Insert_your_card_id_here'
         }",
     "name":"github_1",
     "parameters_out":{
