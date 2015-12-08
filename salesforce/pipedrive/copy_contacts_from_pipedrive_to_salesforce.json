@@ -29,7 +29,7 @@
         record['email'] = '; '.join(obj['value'] for obj in contact['email'])
         record['attributes'] = get_attributes(contact)
         records.append(record)
-        out_dict = {'records': records}"
+        out_dict = {'records': records}",
     "connector_out":"Salesforce, v1.0",
     "parameters_out":{
         "api_url":"https://INSERT_INSTANCE.salesforce.com/services/data/v35.0",
