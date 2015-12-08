@@ -12,7 +12,7 @@
             500
         ]
     },
-    "new_mapper":"out_dict = in_dict",
+    "transformation":"out_dict = in_dict",
     "name":"Trello get board",
     "connector_out":"Dump, v1.2",
     "connector_in":"Trello, v1.0"
