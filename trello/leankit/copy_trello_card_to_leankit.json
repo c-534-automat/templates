@@ -1,5 +1,5 @@
 {
-    "new_mapper":"
+    "transformation":"
         cards = []
         for card in in_dict['cards']:
             tags = ','.join([obj['name'] for obj in card['labels']])
