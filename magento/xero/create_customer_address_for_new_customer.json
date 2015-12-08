@@ -30,7 +30,7 @@
             'postcode': address['PostalCode'],
             'region': address['Region'],
         }",
-    "connector_out":"Magento, v1.0"
+    "connector_out":"Magento, v1.0",
     "parameters_out":{
         "api_url":"http://Insert_your_magento_subdomain_here/api/rest/",
         "api_method":"customers/Insert_your_customer_id_here/addresses",
