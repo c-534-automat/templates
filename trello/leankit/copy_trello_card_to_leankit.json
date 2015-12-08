@@ -43,7 +43,7 @@
             "position":"INSERT_POSITION_CARD_IN_BOARD_HERE"
         },
         "user":{
-            "login":"INSERT_YOUR_EMAIL_HERE,
+            "login":"INSERT_YOUR_EMAIL_HERE",
             "password":"INSERT_YOUR_PASSWORD_HERE"
         }
     }
