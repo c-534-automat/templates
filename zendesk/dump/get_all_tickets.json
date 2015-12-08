@@ -18,6 +18,6 @@
         "http_method":"GET"
     },
     "connector_out":"Dump, v1.2",
-    "new_mapper":"out_dict = in_dict",
+    "transformation":"out_dict = in_dict",
     "connector_in":"Zendesk, v1.0"
 }
