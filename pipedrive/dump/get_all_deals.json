@@ -16,5 +16,5 @@
     "connector_out":"Dump, v1.0",
     "name":"github_2",
     "connector_in":"Pipedrive, v1.0",
-    "new_mapper":"out_dict = in_dict"
+    "transformation":"out_dict = in_dict"
 }
