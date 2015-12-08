@@ -41,5 +41,5 @@
         ],
         "http_method":"POST",
         "rest_data":{}
-    },
+    }
 }
