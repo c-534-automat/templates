@@ -13,7 +13,7 @@
         "error_codes":[
             501,
             401
-        ],
+        ]
     },
     "transformation":"
         # function convert date input format to date output format.
@@ -50,6 +50,6 @@
         "user":{
             "login":"Insert_your_email_address_here",
             "password":"Insert_your_account_password_here"
-        },
+        }
     }
 }
