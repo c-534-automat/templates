@@ -13,9 +13,9 @@
             4600,
             4834,
             500
-        ],
+        ]
     },
-    "new_mapper":"
+    "transformation":"
         input_mapper_data = in_dict.get(
         'response').get('result').get('Contacts').get('row').get('FL')
     
