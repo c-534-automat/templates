@@ -14,7 +14,7 @@
             4834
         ]
     },
-    "new_mapper":"out_dict = in_dict",
+    "transformation":"out_dict = in_dict",
     "connector_out":"Dump, v1.0",
-    "parameters_out":{},
+    "parameters_out":{}
 }
