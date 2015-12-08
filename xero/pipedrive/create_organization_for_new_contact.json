@@ -1,6 +1,6 @@
 # Create new pipedrive organization for one xero contact.
 {
-    "name":"process_2"
+    "name":"process_2",
     "connector_in":"Xero, v1.0",
     "parameters_in":{
     "api_url":"https://api.xero.com/api.xro/2.0/",
