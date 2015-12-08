@@ -10,7 +10,7 @@
         ],
         "url":"https://www.wrike.com/api/v3/accounts"
     },
-    "transformation":"out_dict = in_dict"
+    "transformation":"out_dict = in_dict",
     "connector_out":"Dump, v1.2",
     "parameters_out":{}
 }
