@@ -57,6 +57,6 @@
         'ExternalCardID': in_dict.get('id'),
         'ExternalSystemName': in_dict.get('org_name'),
         'ExternalSystemUrl': in_dict.get('href'),
-        'TypeId': 275577236
+        'TypeId': Insert_your_type_card_here
     }"
 }
