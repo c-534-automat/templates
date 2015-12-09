@@ -1,3 +1,4 @@
+# Get all contacts from myob exo to c-534 dump. 
 {
     "name":"asd",
     "connector_in":"MyOB Exo, v1.0",
