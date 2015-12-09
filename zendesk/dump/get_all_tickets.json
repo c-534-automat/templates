@@ -1,6 +1,6 @@
 # Get all tickets from zendesk to c-534 dump. 
 {
-    "parameters_out":{},
+    "parameters_out":{}
     "name":"Get all tickets",
     "parameters_in":{
         "api_url":"https://INSERT_YOUR_DOMAIN_HERE.zendesk.com/api/v2",
