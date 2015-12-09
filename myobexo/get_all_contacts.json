@@ -25,5 +25,5 @@
     },
     "transformation":"out_dict = in_dict",
     "connector_out":"Dump, v1.2",
-    "parameters_out":{},
+    "parameters_out":{}
 }
