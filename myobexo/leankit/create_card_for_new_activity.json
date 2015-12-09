@@ -1,0 +1,62 @@
+{
+    "name":"asd_2",
+    "connector_in":"MyOB Exo, v1.0",
+    "parameters_in":{
+      "api_url":"http://192.168.0.13:8888/",
+      "api_method":"activity/1",
+      "api_token":"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTI4NjA0MDAsImlzcyI6IlMtMS01LTIxLTI5NjE1ODM0NzQtMTM2ODg2MDk2My00MTQzNTkyNzpEb0RselFTdUxJVHdSbG90MlFvV0lRPT0iLCJhdWQiOiJodHRwczovL2V4by5hcGkubXlvYi5jb20vIiwibmFtZSI6IkVYT0FETUlOIiwic3RhZmZubyI6IjgiLCJhcHBpZCI6IjQ0MDAifQ.WdfuRL54v_-q3T5dRyImR1qOh55sVRfXDcpivKd4p2M",
+      "http_method":"GET",
+      "user":{
+        "login":"ExoAdmin",
+        "password":"ExoAdmin"
+      },
+      "rest_data":{},
+      "error_codes":[
+        304,
+        400,
+        401,
+        403,
+        404,
+        409,
+        410,
+        500,
+        501
+      ]
+    },
+  "connector_out":"Leankit Kanban, v1.0",
+  "parameters_out":{
+    "command":"AddCard",
+    "url":"cc3",
+    "user":{
+        "login":"paulina.szokalska@cooperation534.com",
+        "password":"12345678"
+    },
+    "optional":{
+        "board_id":"275576992",
+        "lane_id":"275639398",
+        "position":"0"
+    }
+  },
+  "transformation":"
+    def get_date_in_out_format(input_date):
+      date_result = ''
+      if input_date:
+          input_date = input_date[0:10].split('-')
+          date_result = '/'.join([
+          input_date[1], input_date[2], input_date[0]])
+      return date_result
+    finish_date = in_dict.get('enddatetime')
+    start_date = in_dict.get('startdatetime')
+    out_dict = {
+        'Title': in_dict.get('subject'),
+        'Description': in_dict.get('details'),
+        'Priority': in_dict.get('priority'),
+        'Tags': in_dict.get('next_activity_subject'),
+        'DueDate': get_date_in_out_format(finish_date),
+        'StartDate': get_date_in_out_format(start_date),
+        'ExternalCardID': in_dict.get('id'),
+        'ExternalSystemName': in_dict.get('org_name'),
+        'ExternalSystemUrl': in_dict.get('href'),
+        'TypeId': 275577236
+    }"
+}
