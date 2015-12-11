@@ -15,7 +15,7 @@
             501,
             503
           ]
-        },
+    },
     "transformation":"
         mapper_data = in_dict['Contacts'][0]
         address = mapper_data['Addresses'][0]
