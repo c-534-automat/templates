@@ -3,19 +3,19 @@
     "name":"process_2",
     "connector_in":"Xero, v1.0",
     "parameters_in":{
-    "api_url":"https://api.xero.com/api.xro/2.0/",
-    "api_method":"Contacts/Insert_your_contact_id_here",
-    "http_method":"GET",
-    "error_codes":[
-        400,
-        401,
-        403,
-        404,
-        500,
-        501,
-        503
-      ]
-    },
+        "api_url":"https://api.xero.com/api.xro/2.0/",
+        "api_method":"Contacts/Insert_your_contact_id_here",
+        "http_method":"GET",
+        "error_codes":[
+            400,
+            401,
+            403,
+            404,
+            500,
+            501,
+            503
+          ]
+        },
     "transformation":"
         mapper_data = in_dict['Contacts'][0]
         address = mapper_data['Addresses'][0]
