@@ -20,7 +20,6 @@
         mapper_data = in_dict['Contacts'][0]
         address = mapper_data['Addresses'][0]
         phone = mapper_data['Phones'][0]
-        person_name = '{}{}{}'.format(mapper_data['FirstName'], ' ', mapper_data['LastName'])
         out_dict = {
             'name': mapper_data['Name'],
             'address_locality': address['Region'],
