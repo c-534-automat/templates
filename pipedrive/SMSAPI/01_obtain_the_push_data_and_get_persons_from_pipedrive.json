@@ -1,0 +1,26 @@
+{
+    "name":"01. Obtain the PUSH data and GET /persons from pipedrive.",
+    "connector_in":"REST, v4.3 beta",
+    "parameters_in":{
+        "error_codes":[
+            404,
+            500
+        ],
+        "headers":{},
+        "http_method":"GET",
+        "rest_data":{},
+        "url":"",
+        "url_params":{},
+        "user":{}
+    },
+    "connector_out":"SPLIT, v1.1",
+    "parameters_out":{
+        "delay_ms":"0",
+        "name":"process",
+        "params":{
+            "param_dict":{},
+            "url":"some_url"
+        }
+    },
+    "transformation":"print in_dict\r\nprint '''\r\n################################################################################\r\n########## Integracja pipeline z smsapi Microservice #1 ########################\r\n################################################################################\r\n'''\r\nprocess_name = '02. GET data of a person and make SMSAPI URL'\r\ndata = in_dict['data']\r\ncurrent_state_of_order = data[u'current']\r\nprevious_state_of_order = data[u'previous']\r\ntitle = current_state_of_order[u'title']\r\nold_pipeline_num = previous_state_of_order[u'stage_order_nr']\r\nnew_pipeline_num = current_state_of_order[u'stage_order_nr']\r\nlane_names = { 1 : 'Pomysl', 2 : 'Nawiazano kontakt', 3 : 'Odkryto potrzeby', 4 : 'Przedstawiono oferte', 5 : 'Negocjacje' }\r\nparam_dict = 'ze stanu ' + str(lane_names[old_pipeline_num]) + ' na stan ' + str(lane_names[new_pipeline_num])\r\nperson_id = current_state_of_order[u'person_id'] # WA\u017bNE\r\nurl = 'https://api.pipedrive.com/v1/persons/{}?api_token=c57ac3365f43fdfa05b9cb2623b6cba1151c28fe'.format(person_id)\r\n\r\ndef get_split_settings(process_name, url=None, phrase=None, params=None, rest_data=None):\r\n    split = {'name': process_name,\r\n             'delay_ms': 0,\r\n             'params': {'param_dict': {'data' : param_dict}}}\r\n    if url:\r\n        split['params'].update({'url': url})\r\n    if phrase:\r\n        split['params']['param_dict'].update({'phrase': phrase})\r\n    if params:\r\n        split['params']['param_dict'].update(params)\r\n    if rest_data:\r\n        split['params'].update({'rest_data': [rest_data]})\r\n    return split\r\ndef main():\r\n    splits = []\r\n    split = get_split_settings(process_name, url=url, phrase=None, params=None, rest_data=None)\r\n    splits.append(split)\r\n    return splits\r\nout_dict = main()\r\nprint out_dict\r\n"
+}

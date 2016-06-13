@@ -1,0 +1,26 @@
+{
+    "name":"03. Send SMS through a URL.",
+    "connector_in":"REST, v4.3 beta",
+    "parameters_in":{
+        "error_codes":[
+            404,
+            500
+        ],
+        "headers":{},
+        "http_method":"GET",
+        "rest_data":{},
+        "url":"",
+        "url_params":{},
+        "user":{}
+    },
+    "connector_out":"SPLIT, v1.1",
+    "parameters_out":{
+        "delay_ms":"0",
+        "name":"process",
+        "params":{
+            "param_dict":{},
+            "url":"some_url"
+        }
+    },
+    "transformation":"print in_dict\r\nprint '''\r\n################################################################################\r\n########## Integracja pipeline z smsapi Microservice #3 ########################\r\n################################################################################\r\n'''\r\nout_dict = in_dict\r\n\r\n\r\nprint out_dict"
+}
