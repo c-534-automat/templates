@@ -67,6 +67,5 @@
     
     
     out_dict = main()
-    print out_dict
-
+    print out_dict"
 }
