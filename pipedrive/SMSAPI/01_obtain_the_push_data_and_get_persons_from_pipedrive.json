@@ -22,55 +22,69 @@
             "url": "some_url"
         }
     },
-    "transformation":"
+    "transformation": "
     print in_dict
     print '''
-    Microservice 1 Pipeline/SMSAPI integration.
-    '''
-    process_name = 'NAME_OF_YOUR_SECOND_MICROSERVICE' #Name of the next process triggered by current Microservice
+        Microservice 1 Pipeline/SMSAPI integration.
+        '''
+    process_name = 'NAME_OF_YOUR_SECOND_MICROSERVICE'  # Name of the next process triggered by current Microservice
     data = in_dict['data']
-    current_state_of_order = data[u 'current']
-    previous_state_of_order = data[u 'previous']
-    title = current_state_of_order[u 'title']
-    old_pipeline_num = previous_state_of_order[u 'stage_order_nr']
-    new_pipeline_num = current_state_of_order[u 'stage_order_nr']
-    lane_names = { 
-        1: 'Idea',		##
-        2: 'Contact made',	###
-        3: 'Needs discovered',	#### Change this values if your pipeline names differ
-        4: 'Proposal Presented',###  (or add new keys:values if you have more pipelines)
-        5: 'In negotiation'	## 
+    current_state_of_order = data[u
+    'current']
+    previous_state_of_order = data[u
+    'previous']
+    title = current_state_of_order[u
+    'title']
+    old_pipeline_num = previous_state_of_order[u
+    'stage_order_nr']
+    new_pipeline_num = current_state_of_order[u
+    'stage_order_nr']
+    lane_names = {
+        1: 'Idea',  ##
+        2: 'Contact made',  ###
+        3: 'Needs discovered',  #### Change this values if your pipeline names differ
+        4: 'Proposal Presented',  ###  (or add new keys:values if you have more pipelines)
+        5: 'In negotiation'  ## 
     }
     param_dict = 'from ' + str(lane_names[old_pipeline_num]) + ' to ' + str(lane_names[new_pipeline_num])
-    person_id = current_state_of_order[u 'person_id']
-    url = 'https://api.pipedrive.com/v1/persons/{}?api_token=YOUR_PIPEDRIVE_TOKEN_HERE'.format(person_id) ## Pipedrive token
-
-    def get_split_settings(process_name, url = None, phrase = None, params = None, rest_data = None): 
-	split = {
-        'name': process_name,
-        'delay_ms': 0,
-        'params': {
-            'param_dict': {
-                'data': param_dict
+    person_id = current_state_of_order[u
+    'person_id']
+    url = 'https://api.pipedrive.com/v1/persons/{}?api_token=YOUR_PIPEDRIVE_TOKEN_HERE'.format(
+        person_id)  ## Pipedrive token
+    
+    
+    def get_split_settings(process_name, url=None, phrase=None, params=None, rest_data=None):
+        split = {
+            'name': process_name,
+            'delay_ms': 0,
+            'params': {
+                'param_dict': {
+                    'data': param_dict
+                }
             }
         }
-    }
-    if url: split['params'].update({
-        'url': url
-    })
-    if phrase: split['params']['param_dict'].update({
-        'phrase': phrase
-    })
-    if params: split['params']['param_dict'].update(params)
-    if rest_data: split['params'].update({
-        'rest_data': [rest_data]
-    })
+        if url: split['params'].update({
+            'url': url
+        })
+        if phrase: split['params']['param_dict'].update({
+            'phrase': phrase
+        })
+        if params: split['params']['param_dict'].update(params)
+        if rest_data: split['params'].update({
+            'rest_data': [rest_data]
+        })
         return split
-    def main(): 
+    
+    
+    def main():
         splits = []
-        split = get_split_settings(process_name, url = url, phrase = None, params = None, rest_data = None)
+        split = get_split_settings(process_name, url=url, phrase=None, params=None, rest_data=None)
         splits.append(split)
         return splits
+    
+    
     out_dict = main()
-    print out_dict"
+    print
+    out_dict
+    "
 }
