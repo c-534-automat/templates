@@ -45,7 +45,8 @@
     person_id = current_state_of_order[u 'person_id']
     url = 'https://api.pipedrive.com/v1/persons/{}?api_token=YOUR_PIPEDRIVE_TOKEN_HERE'.format(person_id) ## Pipedrive token
 
-    def get_split_settings(process_name, url = None, phrase = None, params = None, rest_data = None): split = {
+    def get_split_settings(process_name, url = None, phrase = None, params = None, rest_data = None): 
+	split = {
         'name': process_name,
         'delay_ms': 0,
         'params': {
@@ -64,11 +65,12 @@
     if rest_data: split['params'].update({
         'rest_data': [rest_data]
     })
-    return split
-    def main(): splits = []
-    split = get_split_settings(process_name, url = url, phrase = None, params = None, rest_data = None)
-    splits.append(split)
-    return splits
+        return split
+    def main(): 
+        splits = []
+        split = get_split_settings(process_name, url = url, phrase = None, params = None, rest_data = None)
+        splits.append(split)
+        return splits
     out_dict = main()
     print out_dict"
 }
