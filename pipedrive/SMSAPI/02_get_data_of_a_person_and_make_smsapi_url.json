@@ -25,49 +25,48 @@
         }
     },
     "transformation":"
-print in_dict
-print '''
-Microservice #1 GET person data.
-
-'''
-process_name = '03. Send SMS through a URL.'
-first_name = in_dict['data'][u'first_name']
-phone_number = in_dict['data'][u'phone'][0][u'value']
-offer_change = param_dict['data']
-SMSAPI_USERNAME = 'YOUR_USERNAME'
-SMSAPI_PASSWORD = 'YOUR_MD5_PASSWORD_HERE'  # MD5 PASSWORD
-SMSAPI_MESSAGE_TYPE = 'ECO'  # FOR MORE MESSAGES OPTION READ SMSAPI DOCUMENTATION
-SMSAPI_TEL_NUM = '48' + str(phone_number)  # 48 - COUNTRY PREFIX
-SMSAPI_MESSAGE = 'Hello ' + str(first_name)  + ' status of your order has changed ' + str(offer_change)  # TEXT YOU WANT TO SEND VIA SMS
-url = 'http://api.smsapi.pl/sms.do?username={}&password={}&rfrom={}&to={}&message={}'.format(SMSAPI_USERNAME,
-                                                                                                    SMSAPI_PASSWORD,
-                                                                                                    SMSAPI_MESSAGE_TYPE,
-                                                                                                    SMSAPI_TEL_NUM,
-                                                                                                    SMSAPI_MESSAGE)
-
-def get_split_settings(process_name, url=None, phrase=None, params=None, rest_data=None):
-    split = {'name': process_name,
-             'delay_ms': 0,
-             'params': {'param_dict': {'data' : param_dict}}}
-    if url:
-        split['params'].update({'url': url})
-    if phrase:
-        split['params']['param_dict'].update({'phrase': phrase})
-    if params:
-        split['params']['param_dict'].update(params)
-    if rest_data:
-        split['params'].update({'rest_data': [rest_data]})
-    return split
-
-
-def main():
-    splits = []
-    split = get_split_settings(process_name, url=url, phrase=None, params=None, rest_data=None)
-    splits.append(split)
-    return splits
-
-
-out_dict = main()
-print out_dict
+    print in_dict
+    print '''
+    Microservice #2 GET person data.
+    '''
+    process_name = 'NAME_OF_YOUR_THIRD_MICROSERVICE'
+    first_name = in_dict['data'][u'first_name']
+    phone_number = in_dict['data'][u'phone'][0][u'value']
+    offer_change = param_dict['data']
+    SMSAPI_USERNAME = 'YOUR_USERNAME'
+    SMSAPI_PASSWORD = 'YOUR_MD5_PASSWORD_HERE'  # MD5 PASSWORD
+    SMSAPI_MESSAGE_TYPE = 'ECO'  # FOR MORE MESSAGES OPTION READ SMSAPI DOCUMENTATION
+    SMSAPI_TEL_NUM = '48' + str(phone_number)  # 48 - COUNTRY PREFIX
+    SMSAPI_MESSAGE = 'Hello ' + str(first_name)  + ' status of your order has changed ' + str(offer_change)  # TEXT YOU WANT TO SEND VIA SMS
+    url = 'http://api.smsapi.pl/sms.do?username={}&password={}&rfrom={}&to={}&message={}'.format(SMSAPI_USERNAME,
+                                                                                                        SMSAPI_PASSWORD,
+                                                                                                        SMSAPI_MESSAGE_TYPE,
+                                                                                                        SMSAPI_TEL_NUM,
+                                                                                                        SMSAPI_MESSAGE)
+    
+    def get_split_settings(process_name, url=None, phrase=None, params=None, rest_data=None):
+        split = {'name': process_name,
+                 'delay_ms': 0,
+                 'params': {'param_dict': {'data' : param_dict}}}
+        if url:
+            split['params'].update({'url': url})
+        if phrase:
+            split['params']['param_dict'].update({'phrase': phrase})
+        if params:
+            split['params']['param_dict'].update(params)
+        if rest_data:
+            split['params'].update({'rest_data': [rest_data]})
+        return split
+    
+    
+    def main():
+        splits = []
+        split = get_split_settings(process_name, url=url, phrase=None, params=None, rest_data=None)
+        splits.append(split)
+        return splits
+    
+    
+    out_dict = main()
+    print out_dict
 
 }

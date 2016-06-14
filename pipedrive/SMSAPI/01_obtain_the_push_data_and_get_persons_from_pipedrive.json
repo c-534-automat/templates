@@ -27,7 +27,7 @@
     print '''
     Microservice #1 Pipeline/SMSAPI integration.
     '''
-    process_name = '02. GET data of a person and make SMSAPI URL' #Name of the process triggered by current Microservice
+    process_name = 'NAME_OF_YOUR_SECOND_MICROSERVICE' #Name of the process triggered by current Microservice
     data = in_dict['data']
     current_state_of_order = data[u 'current']
     previous_state_of_order = data[u 'previous']
