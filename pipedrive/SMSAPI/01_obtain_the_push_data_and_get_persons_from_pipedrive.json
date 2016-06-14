@@ -25,26 +25,25 @@
     "transformation":"
     print in_dict
     print '''
-    ##########################################################################################
-    Integracja pipeline z smsapi Microservice #1 ######################################################################################################## 
+    Microservice #1 Pipeline/SMSAPI integration.
     '''
-    process_name = '02. GET data of a person and make SMSAPI URL'
+    process_name = '02. GET data of a person and make SMSAPI URL' #Name of the process triggered by current Microservice
     data = in_dict['data']
     current_state_of_order = data[u 'current']
     previous_state_of_order = data[u 'previous']
     title = current_state_of_order[u 'title']
     old_pipeline_num = previous_state_of_order[u 'stage_order_nr']
     new_pipeline_num = current_state_of_order[u 'stage_order_nr']
-    lane_names = {
-        1: 'Pomysl',
-        2: 'Nawiazano kontakt',
-        3: 'Odkryto potrzeby',
-        4: 'Przedstawiono oferte',
-        5: 'Negocjacje'
+    lane_names = { 
+        1: 'PIPELINE_NAME_01',
+        2: 'PIPELINE_NAME_02',
+        3: 'PIPELINE_NAME_03',
+        4: 'PIPELINE_NAME_04',
+        5: 'PIPELINE_NAME_05' #Change this values to match your needs 
     }
-    param_dict = 'ze stanu ' + str(lane_names[old_pipeline_num]) + ' na stan ' + str(lane_names[new_pipeline_num])
-    person_id = current_state_of_order[u 'person_id']# WAŻNE
-    url = 'https://api.pipedrive.com/v1/persons/{}?api_token=c57ac3365f43fdfa05b9cb2623b6cba1151c28fe'.format(person_id)
+    param_dict = 'from ' + str(lane_names[old_pipeline_num]) + ' to ' + str(lane_names[new_pipeline_num])
+    person_id = current_state_of_order[u 'person_id']
+    url = 'https://api.pipedrive.com/v1/persons/{}?api_token=YOUR_PIPEDRIVE_TOKEN_HERE'.format(person_id)
 
     def get_split_settings(process_name, url = None, phrase = None, params = None, rest_data = None): split = {
         'name': process_name,
