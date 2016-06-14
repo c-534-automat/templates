@@ -1,5 +1,5 @@
 {
-    "name": "01. Obtain the PUSH data.",
+    "name": "NAME_OF_YOUR_FIRST_MICROSERVICE",
     "connector_in": "REST, v4.3 beta",
     "parameters_in": {
         "error_codes": [

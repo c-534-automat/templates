@@ -1,5 +1,5 @@
 {
-    "name":"02. GET data of a person and make SMSAPI URL",
+    "name":"NAME_OF_YOUR_SECOND_MICROSERVICE",
     "connector_in":"REST, v4.3 beta",
     "parameters_in":{
         "error_codes":[
@@ -27,7 +27,7 @@
     "transformation":"
     print in_dict
     print '''
-    Microservice #2 GET person data.
+    Microservice 2 GET person data.
     '''
     process_name = 'NAME_OF_YOUR_THIRD_MICROSERVICE'
     first_name = in_dict['data'][u'first_name']

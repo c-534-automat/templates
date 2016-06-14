@@ -1,5 +1,5 @@
 {
-    "name":"03. Send SMS through a URL.",
+    "name":"NAME_OF_YOUR_THIRD_MICROSERVICE",
     "connector_in":"REST, v4.3 beta",
     "parameters_in":{
         "error_codes":[
@@ -23,10 +23,10 @@
         }
     },
     "transformation":"
-	print '''
-	Microservice #3 Send SMS.
-    	'''
-	print in_dict
-	out_dict = in_dict
-	print out_dict"
+    print '''
+    Microservice 3 Send SMS.
+    '''
+    print in_dict
+    out_dict = in_dict
+    print out_dict"
 }
